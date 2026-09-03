@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class NewPasswordController extends Controller
@@ -26,7 +27,7 @@ class NewPasswordController extends Controller
     /**
      * Handle an incoming new password request.
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -55,8 +56,20 @@ class NewPasswordController extends Controller
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
+                    ? redirect()->route('login')->with('status', 'Your password has been reset.')
                     : back()->withInput($request->only('email'))
-                        ->withErrors(['email' => __($status)]);
+                        ->withErrors(['email' => $this->statusMessage($status)]);
+    }
+
+    /**
+     * Resolve the password reset status key to an English message.
+     */
+    private function statusMessage(string $status): string
+    {
+        return match ($status) {
+            Password::INVALID_USER => "We can't find a user with that email address.",
+            Password::INVALID_TOKEN => 'This password reset token is invalid.',
+            default => 'There was a problem resetting your password.',
+        };
     }
 }
