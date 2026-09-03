@@ -7,10 +7,15 @@
     "guidelines": true,
     "mcp": true,
     "nightwatch": false,
+    "packages": [
+        "barryvdh/laravel-debugbar"
+    ],
     "sail": false,
     "skills": [
+        "infer-conventions",
         "laravel-best-practices",
-        "pest-testing",
-        "tailwindcss-development"
+        "testing-best-practices",
+        "tailwindcss-development",
+        "debug-using-debugbar"
     ]
 }
