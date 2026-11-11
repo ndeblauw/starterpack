@@ -1,6 +1,4 @@
-<p align="center" style="font-size: 24px; margin-bottom: -25px; color: #EF3B2D;">
-    <strong>Educational<br/> Starter Pack<br/></strong><span style="color:gray">for</span>
-</p>
+<h1 align="center">Educational Starter Pack<br><sub>for</sub></h1>
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -14,12 +12,11 @@
 ---
 
 ## About this Starter Pack
-<div style="background-color: #f6f8fa; padding: 10px; border-radius: 5px;">
-This is a starter pack for <strong>Laravel tailored for educational purposes</strong>. 
+
+This is a starter pack for **Laravel tailored for educational purposes**.
 
 It is aimed at helping students and beginners to quickly set up a Laravel development environment that allows for 
 learning the basics without the need to configure everything from scratch.
-</div>
 
 ### Changes from the original Laravel repository
 It provides a pre-configured environment with some opinionated settings and packages for the educational context. 
@@ -32,8 +29,10 @@ Updated to Laravel 13.x (13.42 on November 11th, 2026), running on PHP 8.5, incl
 - Added **laravel/boost** for AI assisted code generation, including skills for Claude Code and Codex
 - Used **laravel/breeze** for authentication scaffolding with Blade templates (but moved all of the component views to a `components.breeze` subfolder for better organization; the Breeze package itself is no longer required)
 - Front-end assets are built with **Vite 8** and **Tailwind CSS 4**, with a fallback to **CDN includes of Tailwind CSS and Alpine JS** when no build is present
-- Replaced PHP Unit by **Pest PHP** for testing, kept basic example tests
+- Replaced PHPUnit by **Pest PHP** for testing, kept basic example tests
 - Some other small tweaks in configuration files, routes, controller, and view organisation to better reflect the educational purpose (rigid structure)
+
+No front-end build is needed to get started. When there is no Vite build in `public/build`, the application falls back to CDN-hosted Tailwind CSS and Alpine JS. Running `npm run build` (or `npm run dev`) switches it to the compiled assets.
 
 Everything that follows below (and the shields in the header) are part of the original Laravel README.md file.
 
