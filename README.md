@@ -24,14 +24,14 @@ learning the basics without the need to configure everything from scratch.
 ### Changes from the original Laravel repository
 It provides a pre-configured environment with some opinionated settings and packages for the educational context. 
 Initial customisation was done based on Laravel version 12.x. (12.37.0 on November 9th, 2025).
-Updated to Laravel 13.x (13.7 on May 4th, 2026), including now also Laravel Boost.
+Updated to Laravel 13.x (13.42 on November 11th, 2026), running on PHP 8.5, including now also Laravel Boost.
 
 - Added **barryvdh/laravel-debugbar** for debug info in the browser
 - Altered **.env.example** for local development (SQLite database, debug mode on, cache and session set to file)
 - Added **roave/security-advisories** to prevent installation of packages with known security issues
-- Added **laravel/boost** for AI assisted code generation
-- Used **laravel/breeze** for authentication scaffolding with Blade templates (but moved all of the component views to a `components.breeze` subfolder for better organization)
-- Replaced vite and related front-end dependencies by **CDN includes of Tailwind CSS and Alpine JS** to keep things simple
+- Added **laravel/boost** for AI assisted code generation, including skills for Claude Code and Codex
+- Used **laravel/breeze** for authentication scaffolding with Blade templates (but moved all of the component views to a `components.breeze` subfolder for better organization; the Breeze package itself is no longer required)
+- Front-end assets are built with **Vite 8** and **Tailwind CSS 4**, with a fallback to **CDN includes of Tailwind CSS and Alpine JS** when no build is present
 - Replaced PHP Unit by **Pest PHP** for testing, kept basic example tests
 - Some other small tweaks in configuration files, routes, controller, and view organisation to better reflect the educational purpose (rigid structure)
 
